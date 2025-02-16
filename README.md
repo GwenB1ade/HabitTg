@@ -1,10 +1,8 @@
 # How to launch the app
 To get started, download the code from github. After that, go to the root folder of the project and write the following command in the command prompt
 
-```
-docker-compose up --build
-```
-Create a virtual environment and install dependencies:
+
+
 ```
 python3 -m venv .venv
 . .venv/bin/activate
@@ -33,6 +31,11 @@ BROKER_HOST=127.0.0.1
 ```
 
 Now we need to get a token for your telegram bot. Go to the bot tag 'BotFather' and create a new bot and get a token. We insert this token into the BOT_KEY variable in the ".env" file.
+Let's launch the containers:
+
+```
+docker-compose up --build
+```
 
 now you can go to the "app" directory. We enter the following code into the command line:
 ```
