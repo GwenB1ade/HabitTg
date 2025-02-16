@@ -1,0 +1,7 @@
+
+class BaseService():
+    model = None
+    
+    
+    
+    

@@ -1,0 +1,37 @@
+version: "3"
+name: habittg
+
+services:
+  postgres_db:
+    container_name: 'postgres_db'
+    ports:
+      - '${DB_PORT}:5432'
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_USER=${DB_USER}
+
+    image: postgres:13.14-alpine3.19
+  
+  redis-backend:
+    container_name: 'redis-backend'
+    ports:
+      - "${REDIS_PORT}:6379"
+    
+    image: redis:alpine3.19
+  
+  rabbitmq:
+    container_name: 'rabbitmq-habit'
+    image: rabbitmq:3.13.6-management-alpine
+    hostname: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=${BROKER_USER}
+      - RABBITMQ_DEFAULT_PASS=${BROKER_PASS}
+    ports:
+      - 15672:15672
+      - 5672:5672
+    volumes:
+      - rabbitmq-habit:/var/lib/rabbitmq
+
+  
+volumes:
+  rabbitmq-habit:
