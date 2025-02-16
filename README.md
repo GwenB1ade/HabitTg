@@ -4,6 +4,12 @@ To get started, download the code from github. After that, go to the root folder
 ```
 docker-compose up --build
 ```
+Create a virtual environment and install dependencies:
+```
+python3 -m venv .venv
+. .venv/bin/activate
+pip3 install -r req.txt
+```
 
 After the containers are created, create a file named ".env". Filling in the dependencies:
 
